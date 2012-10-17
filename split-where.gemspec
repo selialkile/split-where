@@ -2,7 +2,7 @@ require 'rubygems'
 
 spec = Gem::Specification.new do |s|
   s.name = 'split-where'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.summary = 'The best split'
   s.description = <<-EOF
     split_where is the best split for specific situations, such as when a 
