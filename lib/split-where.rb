@@ -2,34 +2,34 @@
 
 # Original class of String...
 class String
-  # The new split
+
+  # The new split_where make split of strings using conditions to determine 
+  # where he can cut or not the string
   # @param [Hash{:value=>String, :outside=>String}] :value for split, :outside is a condition to split
-  #@note exemple: "value:'xx',value:'yy,',lslslsl{},ddddddd'dg,'g"
+  #@note exemple: "'xx','yy,',l{},'dg,'g"
   #@note exemple: "a,b,c"
   #                0123456789012345678901234
   def split_where(args)
     list = []
-    init = 0
-    pointer = 0
-    count = 0
     enable = true
-    while pointer <= self.length
-      #condition
-      puts "c #{count} p #{pointer} i #{init} e #{enable}"
-      if args[:outside] == self[pointer] and enable == true
-        enable = false
-      else
-        enable = true
+    s = ""
+    count = 0
+    while(self[count])
+      c = self[count]
+      if args[:outside] == c 
+        enable = enable ? false : true
       end
-
-      if (self[pointer] == args[:value] || self[pointer].nil?) && enable == true
-        list << self[init,count]
-        init = pointer + 1
-        count = -1
+      
+      if c == args[:value] && enable == true
+        list << s
+        s=""
+      else
+        s += c
       end
       count += 1
-      pointer += 1
     end
+    list << s if s
     list
   end
+
 end

@@ -8,6 +8,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 # end
 
 require 'split-where'
+require 'ruby-debug'
 
 RSpec.configure do |config|
   config.filter_run_excluding :broken => true

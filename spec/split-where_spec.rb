@@ -27,26 +27,31 @@ describe String do
     end
 
     context "given a success with split comma inside of aphostrofe" do
-      let(:text) {"value:'xx',value:'yy,',lslslsl{},ddddddd'dg,'g"}
+      let(:list) {["'xx'","'yy,'","l{}","'dg,'g" ,"estralando os 'dedos,pah'"]}
+      let(:text){list.join(",")}
       subject{ text.split_where(value:",", outside:"'") }
       it "should has 2 itens" do
         subject.count.should == 5
       end
 
       it "should return a text in index 0" do
-        subject[0].should == "value:'xx'"
+        subject[0].should == list[0]
       end
 
       it "should return a text in index 1" do
-        subject[1].should == "value:'yy,'"
+        subject[1].should == list[1]
       end
 
       it "should return a text in index 2" do
-        subject[2].should == "lslslsl{}"
+        subject[2].should == list[2]
       end
 
       it "should return a text in index 3" do
-        subject[3].should == "ddddddd'dg,'g"
+        subject[3].should == list[3]
+      end
+
+      it "should return a text in index 4" do
+        subject[4].should == list[4]
       end
     end
 
