@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 
-
 module SplitWhere
   module String
     # The new split_where make split of strings using conditions to determine 
@@ -36,5 +35,5 @@ end
 
 # Original class of String...
 class String
-  extend SplitWhere::String
+  include SplitWhere::String
 end
